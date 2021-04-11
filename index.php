@@ -18,11 +18,3 @@ $bot->command('help', function ($message) use ($bot) {
 
 $bot->run();
 
-// команда для помощи
-$bot->command('help', function ($message) use ($bot) {
-    $answer = 'Команды:
-/help - вывод справки';
-    $bot->sendMessage($message->getChat()->getId(), $answer);
-});
-
-$bot->run();
