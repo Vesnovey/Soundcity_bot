@@ -15,6 +15,14 @@
     /help - вывод справки';
         $bot->sendMessage($message->getChat()->getId(), $answer);
     });
+    $bot->on(function (\TelegramBot\Api\Types\Update $update) use ($bot) {
+        $message = $update->getMessage();
+        $id = $message->getChat()->getId();
+        $bot->sendMessage($id, 'Ты нормальный вообще?' );
+    }, function () {
+        return true;
+    });
+
 
     $bot->run();
 
