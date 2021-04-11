@@ -19,15 +19,15 @@
     // вариации ответов на неизвестные сообщения
     $bot->on(function (\TelegramBot\Api\Types\Update $update) use ($bot) {
         $array = [
-            "Ты нормальный вообще?" ,
-            "Пиши адекватные вещи" ,
-            "Я не понимаю" ,
-            "Я не могу выполнить эту команду" ,
+            0 => "Ты нормальный вообще?" ,
+            1 => "Пиши адекватные вещи" ,
+            2 => "Я не понимаю" ,
+            3 => "Я не могу выполнить эту команду" ,
         ];
         $message = $update->getMessage();
         $id = $message->getChat()->getId();
-        $rand_keys = array_rand($array, 1);
-        $bot->sendMessage($id, $array[$rand_keys[0]] );
+        $rand_answers = array_rand($array, 1);
+        $bot->sendMessage($id, $rand_answers);
     }, function () {
         return true;
     });
